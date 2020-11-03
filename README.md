@@ -8,6 +8,7 @@ A pretty simplified Docker Compose workflow that sets up a LEMP network of conta
 - **mysql** - `:3306`
 - **php** - `:9000`
 - **redis** - `:6379`
+- **phpmyadmin** - `:8081`
 
 ## Use
 
