@@ -35,12 +35,12 @@ services:
     ports:
       - "3306:3306"
     environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME} 
+      MYSQL_PASSWORD: ${DB_PASSWORD} 
+      MYSQL_ROOT_PASSWORD: secret
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
-      MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: "${DB_DATABASE}"
-      MYSQL_USER: "${DB_USERNAME}"
-      MYSQL_PASSWORD: "${DB_PASSWORD}"
     volumes:
       - ./compose/mysql/my.cnf:/etc/mysql/my.cnf
       - dbdata:/var/lib/mysql/
