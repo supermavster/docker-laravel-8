@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 #Docker Networks
 networks:
@@ -108,7 +108,7 @@ services:
     entrypoint: ['composer', '--ignore-platform-reqs']
 
   npm:
-    image: node:13.7
+    image: node:15.0.1
     container_name: npm
     volumes:
       - ./source:/var/www/html
