@@ -1,5 +1,7 @@
 # Docker - Laravel
 
+![Docker](https://github.com/supermavster/docker-laravel-8/workflows/Docker/badge.svg)
+
 A pretty simplified Docker Compose workflow that sets up a LEMP network of containers for local Laravel development.
 
 ## Ports
