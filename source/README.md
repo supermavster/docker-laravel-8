@@ -8,7 +8,7 @@ Follow the next steps:
 2. Run `cp .env.example .env` and configure your database credentials to the .env file 
 3. Spin up the containers for the web server by running `docker-compose up -d --build site`.
 
-After that completes, follow the steps from the [source/README.md](source/README.md) file to get your Laravel project added in (or create a new blank one).
+After that completes, follow the steps from the [README.md](source/README.md) file to get your Laravel project added in (or create a new blank one).
 
 
 --- 
