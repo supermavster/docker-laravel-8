@@ -1,0 +1,98 @@
+version: '3'
+
+#Docker Networks
+networks:
+  laravel:
+    driver: bridge
+
+#Volumes
+volumes:
+  dbdata:
+    driver: local
+
+# Workflow
+services:
+  site:
+    build:
+      context: .
+      dockerfile: ./compose/nginx/Dockerfile
+    container_name: nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./source:/var/www/html:delegated
+    depends_on:
+      - php
+      - mysql
+    networks:
+      - laravel
+
+  mysql:
+    image: mysql:5.7.29
+    container_name: mysql
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: "${DB_DATABASE}"
+      MYSQL_USER: "${DB_USERNAME}"
+      MYSQL_PASSWORD: "${DB_PASSWORD}"
+    volumes:
+      - ./compose/mysql/my.cnf:/etc/mysql/my.cnf
+      - dbdata:/var/lib/mysql/
+    networks:
+      - laravel
+
+  php:
+    build:
+      context: .
+      dockerfile: ./compose/php/Dockerfile
+    container_name: php
+    volumes:
+      - ./source:/var/www/html:delegated
+    ports:
+      - "9000:9000"
+    networks:
+      - laravel
+
+  composer:
+    build:
+      context: .
+      dockerfile: ./compose/php/composer/Dockerfile
+    container_name: composer
+    volumes:
+      - ./source:/var/www/html
+    working_dir: /var/www/html
+    depends_on:
+      - php
+    user: laravel
+    networks:
+      - laravel
+    entrypoint: ['composer', '--ignore-platform-reqs']
+
+  npm:
+    image: node:13.7
+    container_name: npm
+    volumes:
+      - ./source:/var/www/html
+    working_dir: /var/www/html
+    entrypoint: ['npm']
+
+  artisan:
+    build:
+      context: .
+      dockerfile: ./compose/php/Dockerfile
+    container_name: artisan
+    volumes:
+      - ./source:/var/www/html:delegated
+    depends_on:
+      - mysql
+    working_dir: /var/www/html
+    user: laravel
+    entrypoint: ['php', '/var/www/html/artisan']
+    networks:
+      - laravel
