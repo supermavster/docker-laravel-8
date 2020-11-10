@@ -10,7 +10,7 @@ A pretty simplified Docker Compose workflow that sets up a LEMP network of conta
 
 Ports used in the project:
 | Software  | Port   |
-|-------------- | -------------- | -------------- |
+|-------------- | -------------- |
 | **nginx**    | 8080     |
 | **phpmyadmin**    | 8081     |
 | **mysql**    | 3306     |
