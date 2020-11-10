@@ -6,6 +6,42 @@ Add your Laravel project here (or create a new blank one).
 
 ---
 
+## Remember
+
+The configuration of the database **must be the same on both sides** .
+
+```dotenv
+# .env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=db_name
+DB_USERNAME=db_user
+DB_PASSWORD=db_password
+DB_ROOT_PASSWORD=secret
+```
+
+```dotenv
+# source/.env
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=db_name
+DB_USERNAME=db_user
+DB_PASSWORD=db_password
+```
+
+The only change is the `DB_HOST` in the `source/.env` where is called to the container of `mysql`:
+
+```dotenv
+# source/.env
+DB_HOST=mysql
+```
+
+---
+
+---
+
 ## Help
 
 A little help to create the project:
