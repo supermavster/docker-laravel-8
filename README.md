@@ -34,10 +34,11 @@ To get started, make sure you have [Docker installed](https://docs.docker.com/) 
    ```sh
    docker-compose up --build
    ```
+---
 
-**Notes:**
+## Remember
 
-**Remember** the configuration of the database must be the same on both sides.
+The configuration of the database **must be the same on both sides** .
 
 ```dotenv
 # .env
