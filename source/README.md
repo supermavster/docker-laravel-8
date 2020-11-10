@@ -2,6 +2,8 @@
 
 Add your Laravel project here (or create a new blank one).
 
+---
+
 **Note:** IF exist problems generate the project delete this README.md
 
 ---
@@ -37,8 +39,6 @@ The only change is the `DB_HOST` in the `source/.env` where is called to the con
 # source/.env
 DB_HOST=mysql
 ```
-
----
 
 ---
 
