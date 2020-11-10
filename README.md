@@ -28,7 +28,7 @@ To get started, make sure you have [Docker installed](https://docs.docker.com/) 
    git clone https://github.com/supermavster/docker-laravel-8.git
    ```
 
-2. Generate your own `.env` to docker compose with the next command:
+2. Inside the folder `docker-laravel-8` and Generate your own `.env` to docker compose with the next command:
 
    ```sh
    cp .env.example .env
