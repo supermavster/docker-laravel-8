@@ -18,9 +18,7 @@ env:
   IMAGE_NAME: image
 
 jobs:
-  # Run tests.
-  # See also https://docs.docker.com/docker-hub/builds/automated-testing/
-  test:
+  check:
     runs-on: ubuntu-latest
 
     steps:
