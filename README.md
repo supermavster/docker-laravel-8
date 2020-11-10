@@ -22,18 +22,26 @@ Ports used in the project:
 
 To get started, make sure you have [Docker installed](https://docs.docker.com/) on your system and [Docker Compose](https://docs.docker.com/compose/install/), and then clone this repository.
 
-1. Generate your own `.env` to docker compose with the next command:
+1. Clone this project:
 
    ```sh
-     cp .env.example .env
+   git clone https://github.com/supermavster/docker-laravel-8.git
    ```
 
-2. **Create** or **Put** your laravel project in the folder source; to create follow the next instructions [Here](source/README.md).
-3. Build the project whit the next commands:
+2. Generate your own `.env` to docker compose with the next command:
+
+   ```sh
+   cp .env.example .env
+   ```
+
+3. You need **Create** or **Put** your laravel project in the folder source; to create follow the next instructions [Here](source/README.md).
+
+4. Build the project whit the next commands:
 
    ```sh
    docker-compose up --build
    ```
+
 ---
 
 ## Remember
