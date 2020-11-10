@@ -1,48 +1,68 @@
-## This is where your Laravel app goes
+# This is where your Laravel app goes
 
-To get started, make sure you have [Docker installed](https://docs.docker.com/) on your system, and then clone this repository.
+Add your Laravel project here (or create a new blank one).
 
-Follow the next steps:
+**Note:** IF exist problems generate the project delete this README.md
 
-1. Navigate in your terminal to the directory you cloned this.
-2. Run `cp .env.example .env` and configure your database credentials to the .env file 
-3. Spin up the containers for the web server by running `docker-compose up -d --build site`.
+---
 
-After that completes, follow the steps from the [source/README.md](README.md) file to get your Laravel project added in (or create a new blank one).
+## Help
 
+A little help to create the project:
 
---- 
-
-A little help to create the project: 
+### Make a new Project
 
 ```sh
-# Make a new Project
-docker-compose run --rm composer create-project laravel/laravel .
+docker-compose run --rm composer
+create-project laravel/laravel .
+```
 
-# Copy Environment
-cp .env.example .env 
+### Copy Environment
 
-# Install Libraries from Composer
-docker-compose run --rm composer install 
+```sh
+cp .env.example .env
+```
 
-# Install Libraries from Node
-docker-compose run --rm npm install 
+---
 
-# Clear/Clean the project
+### Install Libraries from Composer
+
+```sh
+docker-compose run --rm composer install
+```
+
+### Install Libraries from Node
+
+```sh
+docker-compose run --rm npm install
+```
+
+### Clear/Clean the project
+
+```sh
 docker-compose run --rm artisan clear:data
-docker-compose run --rm artisan cache:clear 
-docker-compose run --rm artisan view:clear 
-docker-compose run --rm artisan route:clear 
-docker-compose run --rm artisan clear-compiled 
+docker-compose run --rm artisan cache:clear
+docker-compose run --rm artisan view:clear
+docker-compose run --rm artisan route:clear
+docker-compose run --rm artisan clear-compiled
 docker-compose run --rm artisan config:cache
 docker-compose run --rm artisan storage:link
+```
 
-# Generate Keys
+### Generate Keys
+
+```sh
 docker-compose run --rm artisan key:generate
+```
 
-# Run migrations
+### Run migrations
+
+```sh
 docker-compose run --rm artisan migrate --seed
+```
 
-# Run Passport (Optional)
+### Run Passport (Optional)
+
+```sh
 docker-compose run --rm artisan passport:install
 ```
