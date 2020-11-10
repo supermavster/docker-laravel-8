@@ -13,8 +13,7 @@ A little help to create the project:
 ### Make a new Project
 
 ```sh
-docker-compose run --rm composer
-create-project laravel/laravel .
+docker-compose run --rm composer create-project laravel/laravel .
 ```
 
 ### Copy Environment
