@@ -9,6 +9,9 @@ RUN addgroup -g 1000 laravel && adduser -G laravel -g laravel -s /bin/sh -D lara
 # Create folder to run
 RUN mkdir -p /var/www/html
 
+#add write rights to html folder
+RUN chmod -R 777 /var/www/html/
+
 # Set Profile
 RUN chown laravel:laravel /var/www/html
 
@@ -26,10 +29,10 @@ RUN apk add --no-cache \
 
 RUN docker-php-ext-configure gd \
     --with-freetype \
-    --with-jpeg 
+    --with-jpeg
 
 RUN NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
-    docker-php-ext-install -j${NPROC} gd 
+    docker-php-ext-install -j${NPROC} gd
 
 RUN apk del --no-cache freetype-dev libpng-dev libjpeg-turbo-dev
 
